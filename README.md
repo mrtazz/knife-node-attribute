@@ -1,4 +1,4 @@
-# knife-attribute
+# knife-node-attribute
 
 ## Overview
 knife plugin to interact with the various attributes on a nodes.
@@ -21,7 +21,7 @@ Delete a specific attribute on a node:
 ## Installation
 Just get it from rubygems:
 
-    gem install knife-attribute
+    gem install knife-node-attribute
 
 
 ## Contribute

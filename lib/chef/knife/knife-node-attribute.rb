@@ -3,7 +3,7 @@ require 'chef/knife'
 
 ATTRIBUTE_CLASSES = [:normal, :default, :override]
 
-module KnifeAttribute
+module KnifeNodeAttribute
 
   module Helpers
     def get_node(name)
@@ -45,7 +45,7 @@ module KnifeAttribute
   end
 
   class NodeAttributeShow < Chef::Knife
-    include KnifeAttribute::Helpers
+    include KnifeNodeAttribute::Helpers
 
     banner 'knife node attribute show HOSTNAME [NORMAL|DEFAULT|OVERRIDE] [colon:separated:key]'
 
@@ -98,7 +98,7 @@ module KnifeAttribute
   end
 
   class NodeAttributeDelete < Chef::Knife
-    include KnifeAttribute::Helpers
+    include KnifeNodeAttribute::Helpers
 
     banner 'knife node attribute delete HOSTNAME NORMAL|DEFAULT|OVERRIDE colon:separated:key'
 
