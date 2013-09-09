@@ -137,15 +137,21 @@ module KnifeAttribute
     def run
       args = parse_args
       method = "#{args[:class]}_attrs".to_sym
-      parent_hash = args[:name][0, args[:name].length - 1]
 
       node = get_node(args[:nodename])
       # this eval business is awful, I should probably come up with something
       # smarter
-      delete_method =  "node.#{method}['#{parent_hash.join("']['")}'].delete('#{args[:name].last}')"
+      if args[:name].length == 1
+        delete_method =  "node.#{method}.delete('#{args[:name].last}')"
+      else
+        parent_hash = args[:name][0, args[:name].length - 1]
+        delete_method =  "node.#{method}['#{parent_hash.join("']['")}'].delete('#{args[:name].last}')"
+      end
       begin
         eval delete_method
         node.save
+        msg = parent_hash.nil? ? "" : " from parent structure #{parent_hash.join(':')}"
+        puts "Key #{args[:name].last}#{msg} deleted."
       rescue StandardError => e
         ui.error "An error occured while trying to delete the node key:"
         puts e.to_s
