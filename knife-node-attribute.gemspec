@@ -8,6 +8,7 @@ Gem::Specification.new do |gem|
   gem.homepage      = 'https://github.com/mrtazz/knife-node-attribute'
   gem.summary       = "knife plugin to show or delete node attributes"
   gem.description   = "knife plugin to show or delete node attributes"
+  gem.license       = 'MIT'
 
   gem.files         = `git ls-files`.split($\)
   gem.name          = "knife-node-attribute"
