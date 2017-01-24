@@ -57,15 +57,16 @@ module KnifeNodeAttribute
       end
       if name_args[1].nil?
         attribute_class = :all
+        attribute_name = ""
       else
-        attribute_class = name_args[1].downcase.to_sym
+        attribute_class = name_args[1].downcase
         # if we passed a valid attribute class, the next one could be an
         # attribute name. If it's invalid, it might be the attribute name
-        if ATTRIBUTE_CLASSES.include? attribute_class
+        if ATTRIBUTE_CLASSES.include? attribute_class.to_sym
           attribute_name = name_args[2] || ""
         else
           attribute_name = attribute_class
-          attribute_class = :all
+          attribute_class = :default
         end
       end
 
