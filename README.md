@@ -3,6 +3,11 @@
 ## Overview
 knife plugin to interact with the various attributes on a nodes.
 
+**This is fairly unmaintained now.** There exists a more feature-rich
+and maintained version of such a plugin at [pdf/knife-attribute]
+(https://github.com/pdf/knife-attribute) however that will probably
+be way more useful to you.
+
 ## Usage
 Show all attributes on the node (or a specific one if given):
 
